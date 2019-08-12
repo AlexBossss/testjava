@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.concurrent.ExecutionException;
 
 public class main {
     public static void main(String[] args) {
@@ -8,11 +9,17 @@ public class main {
     }
 
     public static int getNumber() {
-        System.out.println("insert number");
-        System.out.println(">");
-        Scanner scanner = new Scanner(System.in);
-        int b = scanner.nextInt();
-        return b;
+        try {
+            System.out.println("insert number");
+            System.out.println(">");
+            Scanner scanner = new Scanner(System.in);
+            int b = scanner.nextInt();
+            return b;
+        }
+        catch (Exception exception){
+            System.out.println("mistake");
+            return getNumber();
+        }
     }
 
     public static void sqrt() {
