@@ -6,6 +6,7 @@ public class Main {
     public static void main(String[] args) {
 
            sqrt();
+           sum();
 //           triangle();
 //           factorial();
 //        getNumber("two");
@@ -37,7 +38,7 @@ public class Main {
     }
 
 
-    public static void sqrt() {
+    private static void sqrt() {
         ArrayList num = getDataNumber(1, "insert one number");
         int number = (int) num.get(0);
         double result = getSqrt(number);
@@ -48,6 +49,18 @@ public class Main {
         return Math.sqrt(number);
 
     }
+
+    private static void sum(){
+        ArrayList num = getDataNumber(2, "insert Two numbers");
+        double firstNumber = (int) num.get(0);
+        double secondNumber = (int) num.get(1);
+        double result = getSum(firstNumber, secondNumber);
+        System.out.println("sum is " + result);
+    }
+    private static double getSum(double firstOperand, double secondOperant){
+        return firstOperand + secondOperant;
+    }
+
 }
 
 
