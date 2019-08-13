@@ -1,15 +1,13 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.concurrent.ExecutionException;
+
 
 public class Main {
     public static void main(String[] args) {
 
            sqrt();
            sum();
-//           triangle();
-//           factorial();
-//        getNumber("two");
+
 
     }
 
@@ -25,7 +23,7 @@ public class Main {
 
     private static int getOneNumber() {
         try {
-//            System.out.println("insert number");
+
             System.out.println(">");
             Scanner scanner = new Scanner(System.in);
             int b = scanner.nextInt();
