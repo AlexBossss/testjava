@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 
@@ -11,36 +12,36 @@ public class Main {
 
     }
 
-    private static ArrayList getDataNumber(int amount, String message) {
-        ArrayList Operands = new ArrayList();
-        System.out.println(message);
-        for (int index = 0; index < amount; index++) {
-            Operands.add(getOneNumber());
+    private static List<String> getDataNumber( String [] messages) {
+        List<String> Operands = new ArrayList<>();
+        Scanner scanner = new Scanner(System.in);
 
+        for (int index = 0; index < messages.length; index++) {
+
+                System.out.println(messages[index]);
+
+            Operands.add(getOneNumber(scanner));
         }
         return Operands;
     }
 
-    private static int getOneNumber() {
+    private static String getOneNumber(Scanner scanner) {
         try {
-
             System.out.println(">");
-            Scanner scanner = new Scanner(System.in);
-            int b = scanner.nextInt();
-
-            return b;
+            return scanner.nextLine();
         } catch (Exception exception) {
             System.out.println("mistake");
-            return getOneNumber();
+            scanner.next();
+            return getOneNumber(scanner);
         }
     }
 
 
     private static void sqrt() {
-        ArrayList num = getDataNumber(1, "insert one number");
-        int number = (int) num.get(0);
-        double result = getSqrt(number);
-        System.out.println("sqrt is " + result);
+//        ArrayList num = getDataNumber(1, "insert one number");
+//        int number = (int) num.get(0);
+//        double result = getSqrt(number);
+//        System.out.println("sqrt is " + result);
     }
 
     private static double getSqrt(int number) {
@@ -49,9 +50,10 @@ public class Main {
     }
 
     private static void sum(){
-        ArrayList num = getDataNumber(2, "insert Two numbers");
-        double firstNumber = (int) num.get(0);
-        double secondNumber = (int) num.get(1);
+        String [] messages = {"insert first", "insert second number" };
+        List<String> num = getDataNumber(messages);
+        double firstNumber =  Double.parseDouble(num.get(0));
+        double secondNumber = Double.parseDouble(num.get(1));
         double result = getSum(firstNumber, secondNumber);
         System.out.println("sum is " + result);
     }
